@@ -1,0 +1,15 @@
+# Local configuration with private API credentials
+config/config.yaml
+
+# Runtime logs and evidence artifacts
+logs/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Common virtual environments
+.venv/
+venv/
+env/
