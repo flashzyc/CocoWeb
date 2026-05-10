@@ -10,6 +10,8 @@ $error = null;
 if (isset($_GET['search'])) {
     $level = security_level();
     if ($level === 'low') {
+        // Security note: this branch intentionally concatenates user input into SQL
+        // to demonstrate a classic SQL injection vulnerability in a training lab.
         $sql = "SELECT id, username, email FROM users WHERE id = '$input'";
         $sql_note = $sql;
         $result = $conn->query($sql);
@@ -19,6 +21,8 @@ if (isset($_GET['search'])) {
         $sql_note = $sql;
         $result = $conn->query($sql);
     } else {
+        // Security note: prepared statements with parameter binding are the
+        // recommended mitigation for SQL injection in real applications.
         $sql_note = 'Prepared statement with parameter binding.';
         $stmt = $conn->prepare("SELECT id, username, email FROM users WHERE id = ?");
         if ($stmt) {

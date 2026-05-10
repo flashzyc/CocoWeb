@@ -4,6 +4,8 @@ require_once __DIR__ . '/includes/bootstrap.php';
 $name = $_POST['name'] ?? '';
 $output = null;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Security note: the downstream renderer may return unescaped HTML at lower
+    // security levels to demonstrate reflected XSS. Do not reuse this pattern in production.
     $output = xss_reflected_output($name);
 }
 
