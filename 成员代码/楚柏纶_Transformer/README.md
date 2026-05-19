@@ -1,6 +1,7 @@
 # Transformer 实现项目
 
 ## 项目简介
+Transformer是一种基于自注意力机制的神经网络架构，专门用于处理和生成自然语言等序列数据。它完全放弃了传统的循环处理方式，通过并行计算大幅提升了模型训练效率，是当前绝大多数大型语言模型的核心基础。
 本项目是一个基于 NumPy 实现的轻量级 Transformer (Causal LM) 模型。包含了从基础的 LayerNorm、Multi-Head Attention 到完整的 Transformer Block 和推理逻辑的完整实现。
 
 ## 核心功能说明
